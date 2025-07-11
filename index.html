@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silvia Orengo - Sound Designer Portfolio</title>
+    <meta name="description" content="Portfolio di Silvia Orengo, Sound Designer e Compositrice specializzata in design sonoro per film, documentari e contenuti commerciali.">
+    
+    <!-- Custom Favicon -->
+    <link rel="icon" type="image/png" href="FAVICON_audio-editing.png">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Cropper.js CSS -->
+    <link rel="stylesheet" href="cropper.min.css">
+</head>
+<body>
+    <!-- Bottone UFO in alto a sinistra per accesso a WAVETABLE -->
+    <div class="ufo-button" onclick="showPage('wavetable-page', null); return false;" aria-label="Area Wavetable">🛸</div>
+    
+    <!-- Bottone Alieno -->
+    <div class="alien-button" onclick="showPage('upload-page', null); return false;" aria-label="Area riservata">👽</div>
+
+    <!-- Bottone Camera -->
+    <div class="camera-button" onclick="showPage('temp-page', null); return false;" aria-label="Temporary Page">
+        <img src="icons/camera.svg" alt="Camera" style="width: 1.5rem; height: 1.5rem;">
+    </div>
+    
+    <!-- ============================================
+         WEB-AREA (CONTENITORE PRINCIPALE)
+    ============================================ -->
+    <div class="web-area">
+        <!-- ============================================
+             INTESTAZIONE PAGINA
+        ============================================ -->
+        <header>
+            <div class="main-title-row">
+                <span class="main-t1">Silvia Orengo</span>
+                <div class="logo-box">
+                    <img src="icons/movie.svg" alt="Main Logo" class="main-logo">
+                </div>
+                <span class="main-t2">Sound Design</span>
+            </div>
+            <p class="subtitle"></p>
+        </header>
+        
+        <!-- ============================================
+             MENU DI NAVIGAZIONE
+        ============================================ -->
+        <nav class="nav-menu" role="navigation" aria-label="Menu principale" style="font-size: 1.2rem; display: flex; gap: 2.2rem; justify-content: center; align-items: center;">
+            <a href="#film" class="active" onclick="showPage('film-page', this); return false;">FILM & TV</a>
+            <a href="#documentary" onclick="showPage('documentary-page', this); return false;">DOCUMENTARY</a>
+            <a href="#commercial" onclick="showPage('commercial-page', this); return false;">COMMERCIAL</a>
+            <a href="#libraries" class="menu-green" onclick="showPage('libraries-page', this); return false;">LIBRARIES</a>
+            <a href="#about" class="menu-green" onclick="showPage('about-page', this); return false;">ABOUT</a>
+            <a href="#contact" class="menu-green" onclick="showPage('contact-page', this); return false;">CONTACT</a>
+        </nav>
+                        
+        <!-- ============================================
+             PAGINA FILM (ATTIVA DI DEFAULT)
+        ============================================ -->
+        <section id="film-page" class="page active" role="main">
+            <main class="grid-container">
+                <div class="scheda torn-poster" tabindex="0" role="button" aria-label="Domani all'alba - Sound Designer">
+                    <div class="poster-container">
+                        <img class="poster-base" src="images/poster/film/domani-allalba.jpg" alt="DOMANI ALL'ALBA">
+                        <button class="expand-icon" aria-label="Expand poster" onclick="expandFilmPoster(event)">
+                            <svg width="23" height="23" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g><g><g><path fill="var(--pink-main)" d="M181.6,10h32.2c8.9,0,16.5,3.2,22.8,9.4s9.4,13.9,9.4,22.8v32.2c0,3-1.1,5.5-3.2,7.6c-2.1,2.1-4.6,3.2-7.6,3.2c-3,0-5.5-1.1-7.6-3.2s-3.2-4.6-3.2-7.6V42.2c0-3-1.1-5.5-3.1-7.6c-2.1-2.1-4.6-3.2-7.6-3.2h-32.2c-3,0-5.5-1.1-7.6-3.2c-2.1-2.1-3.2-4.6-3.2-7.6c0-3,1.1-5.5,3.2-7.6C176.1,11.1,178.7,10,181.6,10L181.6,10z M20.8,170.9c3,0,5.5,1,7.6,3.2c2.1,2.1,3.2,4.6,3.2,7.6v32.2c0,3,1.1,5.5,3.2,7.6s4.6,3.1,7.6,3.1h32.2c3,0,5.5,1.1,7.6,3.2c2.1,2.1,3.2,4.6,3.2,7.6s-1.1,5.5-3.2,7.6c-2.1,2.1-4.6,3.2-7.6,3.2H42.2c-8.9,0-16.5-3.2-22.8-9.4c-6.3-6.3-9.4-13.9-9.4-22.8v-32.2c0-3,1.1-5.5,3.2-7.6C15.3,171.9,17.8,170.9,20.8,170.9L20.8,170.9z M42.2,10h32.2c3,0,5.5,1.1,7.6,3.2c2.1,2.1,3.2,4.6,3.2,7.6c0,3-1.1,5.5-3.2,7.6c-2.1,2.1-4.6,3.2-7.6,3.2H42.2c-3,0-5.5-1.1-7.6-3.2c-2.1-2.1-3.2-4.6-3.2-7.6v32.2c0,3-1,5.5-3.2,7.6c-2.1,2.1-4.6,3.2-7.6,3.2c-3,0-5.5-1.1-7.6-3.2c-2.1-2.1-3.2-4.6-3.2-7.6V42.2c0-8.9,3.2-16.5,9.4-22.8C25.8,13.2,33.3,10,42.2,10L42.2,10z M235.3,170.9c3,0,5.5,1,7.6,3.2c2.1,2.1,3.2,4.6,3.2,7.6v32.2c0,8.9-3.2,16.5-9.4,22.8c-6.3,6.3-13.9,9.4-22.8,9.4h-32.2c-3,0-5.5-1.1-7.6-3.2c-2.1-2.1-3.2-4.6-3.2-7.6s1.1-5.5,3.2-7.6c2.1-2.1,4.6-3.2,7.6-3.2h32.2c3,0,5.5-1.1,7.6-3.2c2.1-2.1,3.1-4.6,3.1-7.6v-32.2c0-3,1.1-5.5,3.2-7.6C229.8,171.9,232.3,170.9,235.3,170.9L235.3,170.9z"/></g></g></g>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="torn-info-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; padding-bottom: 2.5rem;">
+                        <h3 class="scheda-titolo" style="margin-top: -0.5rem; margin-bottom: 0.1rem; text-align: center; color: var(--blue-main);">DOMANI ALL'ALBA</h3>
+                        <div style="margin-bottom: 1.1rem; text-align: center;"><span class="year" style="font-weight:400; font-family:var(--body-font);">(2019)</span> <span class="type" style="color:#888; font-size:1rem; font-weight:400;">Short Film</span></div>
+                        <p style="margin-bottom: 0.3rem;"><strong>DIRECTOR:</strong></p>
+                        <p style="margin-bottom: 1rem; margin-left: 0.5rem;">Giulia di Battista</p>
+                        <p style="margin-bottom: 0.3rem;"><strong>PRODUCTION:</strong></p>
+                        <p style="margin-bottom: 1rem; margin-left: 0.5rem;">CSC production</p>
+                        <p style="margin-bottom: 0.3rem;"><strong>ROLE:</strong></p>
+                        <p style="margin-bottom: 1rem; margin-left: 0.5rem;">Sound Designer</p>
+                        <div class="info-actions-anchor" style="position: absolute; left: 0; right: 0; bottom: 1.2rem;">
+                            <div class="info-actions" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; margin-top: 0.3rem;">
+                                <a class="imdb-btn" href="https://www.imdb.com/title/tt13923774/?ref_=fn_all_ttl_1" target="_blank" aria-label="IMDB Page" style="font-weight: bold; color: #F5C518; font-size: 1rem; text-decoration: none; display: flex; align-items: center; margin-left: 0.8rem; margin-right: 0.8rem;">IMDb</a>
+                                <a href="https://www.youtube.com/watch?v=_vbIs-VBjsI" target="_blank" rel="noopener" style="font-size: 1rem; color: var(--blue-main); text-decoration: none; font-weight: 400; display: flex; align-items: center; gap: 0.4rem; margin-left: 0.8rem; margin-right: 0.8rem;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue-main)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                    trailer
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scheda-info">
+                        <h3 class="scheda-titolo">SOUND DESIGNER</h3>
+                    </div>
+                </div>
+            </main>
+            
+            <!-- Footer (in ogni pagina) -->
+        </section>
+        
+        <!-- ============================================
+             EXPANDED FILM POSTER MODAL
+        ============================================ -->
+        <div id="film-expanded-modal" class="film-expanded-modal" style="display:none;">
+            <div class="film-expanded-content">
+                <button class="close-expanded-btn" onclick="closeFilmPoster()" aria-label="Close expanded poster">
+                    <svg width="40" height="40" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g><g><g><path fill="var(--pink-main)" d="M117.2,10.4C89,13.1,63.1,25.6,43.4,46C29,60.7,19.1,78.4,13.8,98.2c-8.1,30.9-3.2,64.1,13.5,91.4c4.7,7.5,10.3,14.6,17.2,21.5c9.7,9.7,17.9,15.8,29.3,21.7c38.4,19.8,83.5,17.3,119.3-6.5c50.4-33.5,67.3-98.7,39.6-152.4c-5.9-11.3-11.9-19.6-21.7-29.3c-9.5-9.5-19-16.4-30.5-22.1C161.3,12.8,138.4,8.4,117.2,10.4z M143.4,25.9c46.8,7.3,82.8,45.3,87.4,92.2c2.5,25.6-4.7,51.2-20.4,72.2c-4.2,5.6-14.5,15.9-20.1,20.1c-41,30.6-96.9,27.3-133.7-7.9c-16.7-16-27.2-36.3-30.9-59.5c-1.1-7.1-1.1-22.9,0-30.2c7.3-46.9,44.6-82.5,91.6-87.6C122.8,24.6,137.9,25,143.4,25.9z"/><path fill="var(--pink-main)" d="M93.5,90.2c-2.1,0.9-3.6,3-4.1,5.4c-0.6,3.3,0.1,4.2,14.5,18.7l13.7,13.7l-13.9,13.9C90.3,155.4,89.8,156,89.5,158c-0.8,5.4,4.2,9.9,9.3,8.3c1.3-0.5,4.8-3.6,15.5-14.2l13.7-13.7l13.7,13.7c11.6,11.6,14,13.7,15.6,14.3c5.4,1.6,10.5-3.6,8.9-8.9c-0.5-1.6-2.7-4.1-14.3-15.7L138.4,128l13.7-13.7c10.6-10.6,13.7-14.1,14.2-15.5c1.6-5.1-2.8-10.1-8.3-9.3c-2,0.3-2.6,0.8-16.1,14.2L128,117.6l-13.5-13.5C98.8,88.5,98.2,88.1,93.5,90.2z"/></g></g></g>
+                    </svg>
+                </button>
+                <img src="images/poster/film/domani-allalba.jpg" alt="DOMANI ALL'ALBA - Expanded View" class="film-expanded-image">
+            </div>
+        </div>
+        
+        <!-- ============================================
+             PAGINA DOCUMENTARY
+        ============================================ -->
+        <section id="documentary-page" class="page" role="main">
+            <main class="grid-container">
+                <div class="scheda torn-poster" tabindex="0" role="button" aria-label="Noi - Sound Effects Editor">
+                    <div class="poster-container">
+                        <img class="poster-base" src="images/poster/documentary/noi.jpg" alt="NOI">
+                        <button class="expand-icon" aria-label="Expand poster" onclick="expandDocumentaryPoster(event)">
+                            <svg width="23" height="23" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g><g><g><path fill="var(--pink-main)" d="M181.6,10h32.2c8.9,0,16.5,3.2,22.8,9.4s9.4,13.9,9.4,22.8v32.2c0,3-1.1,5.5-3.2,7.6c-2.1,2.1-4.6,3.2-7.6,3.2c-3,0-5.5-1.1-7.6-3.2s-3.2-4.6-3.2-7.6V42.2c0-3-1.1-5.5-3.1-7.6c-2.1-2.1-4.6-3.2-7.6-3.2h-32.2c-3,0-5.5-1.1-7.6-3.2c-2.1-2.1-3.2-4.6-3.2-7.6c0-3,1.1-5.5,3.2-7.6C176.1,11.1,178.7,10,181.6,10L181.6,10z M20.8,170.9c3,0,5.5,1,7.6,3.2c2.1,2.1,3.2,4.6,3.2,7.6v32.2c0,3,1.1,5.5,3.2,7.6s4.6,3.1,7.6,3.1h32.2c3,0,5.5,1.1,7.6,3.2c2.1,2.1,3.2,4.6,3.2,7.6s-1.1,5.5-3.2,7.6c-2.1,2.1-4.6,3.2-7.6,3.2H42.2c-8.9,0-16.5-3.2-22.8-9.4c-6.3-6.3-9.4-13.9-9.4-22.8v-32.2c0-3,1.1-5.5,3.2-7.6C15.3,171.9,17.8,170.9,20.8,170.9L20.8,170.9z M42.2,10h32.2c3,0,5.5,1.1,7.6,3.2c2.1,2.1,3.2,4.6,3.2,7.6c0,3-1.1,5.5-3.2,7.6c-2.1,2.1-4.6,3.2-7.6,3.2H42.2c-3,0-5.5-1.1-7.6-3.2c-2.1-2.1-3.2-4.6-3.2-7.6v32.2c0,3-1,5.5-3.2,7.6c-2.1,2.1-4.6,3.2-7.6,3.2c-3,0-5.5-1.1-7.6-3.2c-2.1-2.1-3.2-4.6-3.2-7.6V42.2c0-8.9,3.2-16.5,9.4-22.8C25.8,13.2,33.3,10,42.2,10L42.2,10z M235.3,170.9c3,0,5.5,1,7.6,3.2c2.1,2.1,3.2,4.6,3.2,7.6v32.2c0,8.9-3.2,16.5-9.4,22.8c-6.3,6.3-13.9,9.4-22.8,9.4h-32.2c-3,0-5.5-1.1-7.6-3.2c-2.1-2.1-3.2-4.6-3.2-7.6s1.1-5.5,3.2-7.6c2.1-2.1,4.6-3.2,7.6-3.2h32.2c3,0,5.5-1.1,7.6-3.2c2.1-2.1,3.1-4.6,3.1-7.6v-32.2c0-3,1.1-5.5,3.2-7.6C229.8,171.9,232.3,170.9,235.3,170.9L235.3,170.9z"/></g></g></g>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="torn-info-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; padding-bottom: 2.5rem;">
+                        <h3 class="scheda-titolo" style="margin-top: -0.5rem; margin-bottom: 0.1rem; text-align: center; color: var(--blue-main);">NOI</h3>
+                        <div style="margin-bottom: 1.1rem; text-align: center;"><span class="year" style="font-weight:400; font-family:var(--body-font);">(2019)</span> <span class="type" style="color:#888; font-size:1rem; font-weight:400;">Documentary</span></div>
+                        <p style="margin-bottom: 0.3rem;"><strong>DIRECTOR:</strong></p>
+                        <p style="margin-bottom: 1rem; margin-left: 0.5rem;">Benedetta Valabrega</p>
+                        <p style="margin-bottom: 0.3rem;"><strong>PRODUCTION:</strong></p>
+                        <p style="margin-bottom: 1rem; margin-left: 0.5rem;">Centro Sperimentale di Cinematografia Sede Sicilia</p>
+                        <p style="margin-bottom: 0.3rem;"><strong>ROLE:</strong></p>
+                        <p style="margin-bottom: 1rem; margin-left: 0.5rem;">Sound Effects Editor</p>
+                        <div class="info-actions-anchor" style="position: absolute; left: 0; right: 0; bottom: 1.2rem;">
+                            <div class="info-actions" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; margin-top: 0.3rem;">
+                                <a class="imdb-btn" href="https://www.siciliaqueerfilmfest.it/edizioni/sicilia-queer-2019/panorama-queer-2019/noi" target="_blank" aria-label="IMDB Page" style="font-weight: bold; color: #F5C518; font-size: 1rem; text-decoration: none; display: flex; align-items: center; margin-left: 0.8rem; margin-right: 0.8rem;">IMDb</a>
+                                <a href="https://www.youtube.com/watch?v=CM_OERAFAlE" target="_blank" rel="noopener" style="font-size: 1rem; color: var(--blue-main); text-decoration: none; font-weight: 400; display: flex; align-items: center; gap: 0.4rem; margin-left: 0.8rem; margin-right: 0.8rem;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue-main)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                    trailer
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scheda-info">
+                        <h3 class="scheda-titolo">SOUND EFFECTS EDITOR</h3>
+                    </div>
+                </div>
+            </main>
+            <!-- Footer (in ogni pagina) -->
+        </section>
+        
+        <!-- ============================================
+             EXPANDED DOCUMENTARY POSTER MODAL
+        ============================================ -->
+        <div id="documentary-expanded-modal" class="film-expanded-modal" style="display:none;">
+            <div class="film-expanded-content">
+                <button class="close-expanded-btn" onclick="closeDocumentaryPoster()" aria-label="Close expanded poster">
+                    <svg width="40" height="40" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g><g><g><path fill="var(--pink-main)" d="M117.2,10.4C89,13.1,63.1,25.6,43.4,46C29,60.7,19.1,78.4,13.8,98.2c-8.1,30.9-3.2,64.1,13.5,91.4c4.7,7.5,10.3,14.6,17.2,21.5c9.7,9.7,17.9,15.8,29.3,21.7c38.4,19.8,83.5,17.3,119.3-6.5c50.4-33.5,67.3-98.7,39.6-152.4c-5.9-11.3-11.9-19.6-21.7-29.3c-9.5-9.5-19-16.4-30.5-22.1C161.3,12.8,138.4,8.4,117.2,10.4z M143.4,25.9c46.8,7.3,82.8,45.3,87.4,92.2c2.5,25.6-4.7,51.2-20.4,72.2c-4.2,5.6-14.5,15.9-20.1,20.1c-41,30.6-96.9,27.3-133.7-7.9c-16.7-16-27.2-36.3-30.9-59.5c-1.1-7.1-1.1-22.9,0-30.2c7.3-46.9,44.6-82.5,91.6-87.6C122.8,24.6,137.9,25,143.4,25.9z"/><path fill="var(--pink-main)" d="M93.5,90.2c-2.1,0.9-3.6,3-4.1,5.4c-0.6,3.3,0.1,4.2,14.5,18.7l13.7,13.7l-13.9,13.9C90.3,155.4,89.8,156,89.5,158c-0.8,5.4,4.2,9.9,9.3,8.3c1.3-0.5,4.8-3.6,15.5-14.2l13.7-13.7l13.7,13.7c11.6,11.6,14,13.7,15.6,14.3c5.4,1.6,10.5-3.6,8.9-8.9c-0.5-1.6-2.7-4.1-14.3-15.7L138.4,128l13.7-13.7c10.6-10.6,13.7-14.1,14.2-15.5c1.6-5.1-2.8-10.1-8.3-9.3c-2,0.3-2.6,0.8-16.1,14.2L128,117.6l-13.5-13.5C98.8,88.5,98.2,88.1,93.5,90.2z"/></g></g></g>
+                    </svg>
+                </button>
+                <img src="images/poster/documentary/noi.jpg" alt="NOI - Expanded View" class="film-expanded-image">
+            </div>
+        </div>
+        
+        <!-- ============================================
+             PAGINA COMMERCIAL
+        ============================================ -->
+        <section id="commercial-page" class="page" role="main">
+            <main class="commercial-container">
+                <div class="commercial-card">
+                    <div class="poster-col">
+                        <div class="poster-img horizontal-poster">
+                            <img src="images/poster/commercial/porsche-electricity-talk-london-eye.jpg" alt="Poster Porsche Electricity Talk - London Eye">
+                            <div class="trailer-link-bottom-right">
+                                <a href="https://www.youtube.com/watch?v=7ZR_cUSh1w0" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: center; padding: 0; gap: 0.4rem;">
+                                    <img src="icons/play.svg" alt="Play trailer" style="width: 0.85rem; height: 0.85rem; display: block; filter: none;" />
+                                    <span style="font-weight: 400; font-size: 1rem; letter-spacing: 0.03em; color: #111;">watch</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-col">
+                        <div class="project-info vertical-info">
+                            <h3 class="project-title">PORSCHE ELECTRICITY TALK - LONDON EYE</h3>
+                            <div class="project-details">
+                                <p><strong>AGENCY:</strong> Porsche</p>
+                                <p><strong>YEAR:</strong> 2019</p>
+                                <p><strong>ROLE:</strong> Sound Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- Footer (in ogni pagina) -->
+        </section>
+        
+        <!-- ============================================
+             PAGINA LIBRARIES
+        ============================================ -->
+        <section id="libraries-page" class="page" role="main">
+          <div class="libraries-intro-text">
+            These are my personal field recordings.<br>
+            Feel free to reach out for a quote! <a href="#contact" style="color: var(--blue-main); font-weight: 400; text-decoration: underline; cursor: pointer; transition: color 0.2s;" onclick="showPage('contact-page', document.querySelector('.nav-menu a[href=\'#contact\']')); return false;">Contact Me</a>.
+          </div>
+          <div id="library-full-poster-container" style="display: none;">
+            <div class="library-full-poster">
+              <button id="library-full-minimize" class="bio-button close-btn" aria-label="Close" style="background:transparent; border:none; box-shadow:none; padding:0; position:absolute;top:18.3px;right:18.3px;z-index:10;">
+  <svg class='close-round-svg' width='27' height='27' viewBox='0 0 256 256' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <g><g><g><path class='close-round-outline' fill='#fff' d='M117.2,10.4C89,13.1,63.1,25.6,43.4,46C29,60.7,19.1,78.4,13.8,98.2c-8.1,30.9-3.2,64.1,13.5,91.4c4.7,7.5,10.3,14.6,17.2,21.5c9.7,9.7,17.9,15.8,29.3,21.7c38.4,19.8,83.5,17.3,119.3-6.5c50.4-33.5,67.3-98.7,39.6-152.4c-5.9-11.3-11.9-19.6-21.7-29.3c-9.5-9.5-19-16.4-30.5-22.1C161.3,12.8,138.4,8.4,117.2,10.4z M143.4,25.9c46.8,7.3,82.8,45.3,87.4,92.2c2.5,25.6-4.7,51.2-20.4,72.2c-4.2,5.6-14.5,15.9-20.1,20.1c-41,30.6-96.9,27.3-133.7-7.9c-16.7-16-27.2-36.3-30.9-59.5c-1.1-7.1-1.1-22.9,0-30.2c7.3-46.9,44.6-82.5,91.6-87.6C122.8,24.6,137.9,25,143.4,25.9z'/><path class='close-round-x' fill='#fff' stroke='#fff' stroke-width='8' d='M93.5,90.2c-2.1,0.9-3.6,3-4.1,5.4c-0.6,3.3,0.1,4.2,14.5,18.7l13.7,13.7l-13.9,13.9C90.3,155.4,89.8,156,89.5,158c-0.8,5.4,4.2,9.9,9.3,8.3c1.3-0.5,4.8-3.6,15.5-14.2l13.7-13.7l13.7,13.7c11.6,11.6,14,13.7,15.6,14.3c5.4,1.6,10.5-3.6,8.9-8.9c-0.5-1.6-2.7-4.1-14.3-15.7L138.4,128l13.7-13.7c10.6-10.6,13.7-14.1,14.2-15.5c1.6-5.1-2.8-10.1-8.3-9.3c-2,0.3-2.6,0.8-16.1,14.2L128,117.6l-13.5-13.5C98.8,88.5,98.2,88.1,93.5,90.2z'/></g></g></g>
+  </svg>
+</button>
+<style>
+.close-btn .close-round-svg { filter: drop-shadow(0 1px 2px #000); }
+.close-btn:hover .close-round-svg { filter: drop-shadow(0 1px 2px var(--pink-main)); }
+</style>
+              <img id="library-full-img" src="https://placehold.co/800x450" alt="Full Poster">
+              <div class="library-full-overlay">
+                <h2 id="library-full-title">CORNWALL</h2>
+                <div id="library-full-info">Location: St Ives<br>Year: 2025</div>
+                <div id="library-full-audio-player" class="custom-audio-player"></div>
+              </div>
+            </div>
+          </div>
+          <main>
+            <div class="library-mini-grid"></div>
+            <div class="footer-spacer"></div>
+          </main>
+          <!-- Footer (in ogni pagina) -->
+        </section>
+
+        <!-- ============================================
+             PAGINA ABOUT
+        ============================================ -->
+        <section id="about-page" class="page" role="main">
+            <div class="bio-container">
+                <!-- Colonna ASCII Portrait -->
+                <div class="bio-photo-container">
+                    <iframe src="images/profile/ascii-portrait-dynamic-2.html" class="ascii-iframe" style="width:100%;max-width:540px;height:288px;border:none;background:transparent;margin-top:5.0rem;margin-left:20px;vertical-align:top;overflow:hidden;"></iframe>
+                </div>
+                
+                <!-- Colonna Testo e Links -->
+                <div class="bio-text-container">
+                    <div class="bio-header">
+                        <h2 style="font-weight: 400;">Silvia Orengo</h2>
+                        <!-- Language Switcher (only visible on ABOUT page) -->
+                        <div class="language-switcher" id="bio-language-switcher" style="display: none;">
+                            <button onclick="switchLanguage('en')" id="lang-en" class="lang-btn active">ENG</button>
+                            <button onclick="switchLanguage('it')" id="lang-it" class="lang-btn">ITA</button>
+                        </div>
+                    </div>
+                    
+                    <!-- English Content -->
+                    <div id="bio-content-en" class="bio-content">
+                        <p class="bio-text">
+                            Sound designer and composer with over 10 years of experience in the film and audiovisual industry. 
+                            Specialized in creating immersive soundscapes and sound design for films, documentaries, and commercial content.
+                        </p>
+                        
+                        <p class="bio-text">
+                            I have collaborated with internationally renowned directors and producers, contributing to projects that have received 
+                            recognition at film festivals worldwide. My approach combines traditional techniques with innovative sound experimentation, 
+                            always seeking to elevate storytelling through precise and creative sound design.
+                        </p>
+                        
+                        <p class="bio-text">
+                            Currently working as a freelance sound designer, dividing my time between commissions for 
+                            film productions, original compositions, and the creation of specialized sound libraries.
+                        </p>
+                        
+                        <!-- Bottoni Link -->
+                        <div class="bio-links">
+                            <a href="https://www.imdb.com/it/name/nm8344062/?ref_=nv_sr_srsg_0_tt_1_nm_7_in_0_q_silvia%2520orengo" target="_blank" rel="noopener" class="bio-button">
+                                <img src="images/IMDb.png" alt="IMDB" style="height:16px; width:auto;">
+                                IMDB Page
+                            </a>
+                            
+                            <a href="https://drive.google.com/file/d/19SK-auUjR9R9ewyq9DI3l55HmCcC6aR5/view?usp=share_link" target="_blank" rel="noopener" class="bio-button">
+                                <img src="images/cv1.png" alt="CV">
+                                CV
+                            </a>
+                            
+                            <a href="https://www.bncapps.it/" target="_blank" rel="noopener" class="bio-button">
+                                <img src="images/Master_logo_BNC_web_color.png" alt="BNC">
+                                Studio Facility
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Italian Content -->
+                    <div id="bio-content-it" class="bio-content" style="display: none;">
+                        <p class="bio-text">
+                            Sound designer e compositrice con oltre 10 anni di esperienza nell'industria cinematografica e audiovisiva. 
+                            Specializzata nella creazione di paesaggi sonori immersivi e design del suono per film, documentari e contenuti commerciali.
+                        </p>
+                        
+                        <p class="bio-text">
+                            Ho collaborato con registi e produttori di fama internazionale, contribuendo a progetti che hanno ricevuto 
+                            riconoscimenti in festival cinematografici di tutto il mondo. Il mio approccio combina tecniche tradizionali 
+                            con sperimentazioni sonore innovative, cercando sempre di elevare la narrazione attraverso un design sonoro preciso e creativo.
+                        </p>
+                        
+                        <p class="bio-text">
+                            Attualmente lavoro come sound designer freelance, dividendo il mio tempo tra commissioni per 
+                            produzioni cinematografiche, composizioni originali e la creazione di librerie sonore specializzate.
+                        </p>
+                        
+                        <!-- Bottoni Link -->
+                        <div class="bio-links">
+                            <a href="https://www.imdb.com/it/name/nm8344062/?ref_=nv_sr_srsg_0_tt_1_nm_7_in_0_q_silvia%2520orengo" target="_blank" rel="noopener" class="bio-button">
+                                <img src="images/IMDb.png" alt="IMDB" style="height:16px; width:auto;">
+                                Pagina IMDB
+                            </a>
+                            
+                            <a href="https://drive.google.com/file/d/19SK-auUjR9R9ewyq9DI3l55HmCcC6aR5/view?usp=share_link" target="_blank" rel="noopener" class="bio-button">
+                                <img src="images/cv1.png" alt="CV">
+                                CV
+                            </a>
+                            
+                            <a href="https://www.bncapps.it/" target="_blank" rel="noopener" class="bio-button">
+                                <img src="images/Master_logo_BNC_web_color.png" alt="BNC">
+                                Studio Facility
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer (in ogni pagina) -->
+        </section>
+                
+        <!-- ============================================
+             PAGINA CONTACT ME
+        ============================================ -->
+        <section id="contact-page" class="page" role="main">
+            <div class="contact-container">
+                <h2>Contact Me</h2>
+                <p class="contact-intro" style="margin-bottom: 2.2rem;">For collaborations or information, drop me a line at <a href="mailto:com">siorengo19@gmail.com</a> or fill out the form below:</p>
+                
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Chiave API di Web3Forms -->
+                    <input type="hidden" name="access_key" value="5a0361fa-4845-411c-b03d-1cec2e59091b">
+                    
+                    <!-- URL di redirect dopo invio -->
+                    <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                    
+                    <!-- Email di destinazione nascosta (opzionale) -->
+                    <input type="hidden" name="to" value="siorengo19@gmail.com">
+                    
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your email" required class="contact-input" aria-label="Your email">
+                    </div>
+                    
+                    <div class="form-group form-row" style="display: flex; gap: 1rem;">
+                        <div style="flex: 1;">
+                            <input type="text" name="name" placeholder="Your name" required class="contact-input" aria-label="Your name">
+                        </div>
+                        <div style="flex: 1;">
+                            <input type="text" name="subject" placeholder="Subject" required class="contact-input" aria-label="Subject">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your message" required class="contact-input" aria-label="Your message"></textarea>
+                    </div>
+                    
+                    
+                    <button type="submit" class="submit-btn">Send</button>
+                </form>
+            </div>
+            
+            <!-- Footer (in ogni pagina) -->
+        </section>
+        
+        <!-- ============================================
+             PAGINA UPLOAD (CON PROTEZIONE PASSWORD)
+        ============================================ -->
+        <section id="upload-page" class="page" role="main">
+            <div class="upload-container">
+                <h2 style="margin-bottom: 3.2rem; font-size: 1.2rem; font-weight: 400;">Area Riservata</h2>
+                
+                <!-- Form di accesso con password -->
+                <div id="password-form-container" style="text-align: center; max-width: 300px; margin: 3.5rem auto 0 auto;">
+                    <div class="form-group">
+                        <input type="password" id="access-password" placeholder="Password" class="contact-input" aria-label="Password">
+                    </div>
+                    <button onclick="checkPassword()" class="submit-btn">Accedi</button>
+                </div>
+                
+                <!-- Contenuto protetto (invisibile fino all'autenticazione) -->
+                <div id="upload-content" style="display: none;">
+                  
+                    
+                    <!-- Menu a tendina per selezione categoria -->
+                    <div class="upload-section">
+                        <h4>📂 Carica nuovo progetto</h4>
+                        <div class="category-selector">
+                            <select id="project-category" onchange="showCategoryForm()" class="category-dropdown">
+                                <option value="">-- Scegli una categoria --</option>
+                                <option value="film">FILM&TV</option>
+                                <option value="documentary">DOCUMENTARY</option>
+                                <option value="commercial">COMMERCIAL</option>
+                                <option value="libraries">LIBRARIES</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- CAMBIA INFO SITO: split into mini-forms, each with its own SALVA button -->
+                    <div class="upload-section" style="margin-top:2.5rem;">
+                      <h4>📝 CAMBIA INFO SITO</h4>
+                      <form class="project-form" action="upload-handler.php" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                          <label for="bio-pic">BIO Profile Pic</label>
+                          <input type="file" id="bio-pic" name="bio-pic" accept="image/*" class="file-input">
+                          <small>Carica una nuova foto profilo BIO (verrà salvata in /docs)</small>
+                          <div id="bio-crop-preview" style="margin-top:1rem;"></div>
+                          <button type="submit" class="submit-btn">Salva</button>
+                          <div class="upload-message"></div>
+                        </div>
+                      </form>
+                      <form class="project-form" action="upload-handler.php" method="POST">
+                        <div class="form-group">
+                          <label for="bio-text-en">BIO Text (ENG)</label>
+                          <textarea id="bio-text-en" name="bio-text-en" rows="5" class="contact-input" placeholder="Edit BIO text in English..."></textarea>
+                          <small>Edit BIO text in English (will be saved in /docs)</small>
+                          <button type="submit" class="submit-btn">Save</button>
+                          <div class="upload-message"></div>
+                        </div>
+                      </form>
+                      <form class="project-form" action="upload-handler.php" method="POST">
+                        <div class="form-group">
+                          <label for="bio-text-it">BIO Text (ITA)</label>
+                          <textarea id="bio-text-it" name="bio-text-it" rows="5" class="contact-input" placeholder="Modifica il testo della BIO in italiano..."></textarea>
+                          <small>Modifica il testo della BIO in italiano (verrà salvato in /docs)</small>
+                          <button type="submit" class="submit-btn">Salva</button>
+                          <div class="upload-message"></div>
+                        </div>
+                      </form>
+                      <form class="project-form" action="upload-handler.php" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                          <label for="cv-upload">CV (PDF)</label>
+                          <input type="file" id="cv-upload" name="cv-upload" accept="application/pdf" class="file-input">
+                          <small>Carica un nuovo CV (verrà salvato in /docs)</small>
+                          <button type="submit" class="submit-btn">Salva</button>
+                          <div class="upload-message"></div>
+                        </div>
+                      </form>
+                      <form class="project-form" action="upload-handler.php" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                          <label for="privacy-upload">Privacy Policy (PDF)</label>
+                          <input type="file" id="privacy-upload" name="privacy-upload" accept="application/pdf" class="file-input">
+                          <small>Carica una nuova Privacy Policy (verrà salvata in /docs)</small>
+                          <button type="submit" class="submit-btn">Salva</button>
+                          <div class="upload-message"></div>
+                        </div>
+                      </form>
+                      <form class="project-form" action="upload-handler.php" method="POST">
+                        <div class="form-group">
+                          <label for="contact-email">Contact Email</label>
+                          <input type="email" id="contact-email" name="contact-email" class="contact-input" placeholder="Nuova email per il modulo contatti">
+                          <small>Questo aggiornerà l'email nel modulo di contatto.</small>
+                          <button type="submit" class="submit-btn">Salva</button>
+                          <div class="upload-message"></div>
+                        </div>
+                      </form>
+                      <form class="project-form" action="upload-handler.php" enctype="multipart/form-data">
+                        <div class="form-group">
+                          <label for="favicon-upload">Favicon</label>
+                          <input type="file" id="favicon-upload" name="favicon-upload" accept=".ico,.png,.svg" class="file-input">
+                          <small>Carica una nuova favicon (.ico, .png, .svg). Verrà salvata nella root e sostituirà la precedente.</small>
+                          <button type="submit" class="submit-btn">Salva</button>
+                          <div class="upload-message"></div>
+                        </div>
+                      </form>
+                    </div>
+                    
+                    <!-- Form per FILM&TV -->
+                    <div id="film-form" class="upload-form" style="display: none;">
+                        <div class="upload-section">
+                            <h4>🎬 Nuovo Progetto FILM&TV</h4>
+                            <form id="site-info-form" class="project-form" action="upload-handler.php" method="POST" enctype="multipart/form-data">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="film-title">Titolo del Film&TV *</label>
+                                        <input type="text" id="film-title" name="title" required class="contact-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="film-director">Regista *</label>
+                                        <input type="text" id="film-director" name="director" required class="contact-input">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="film-type">Tipo *</label>
+                                        <select id="film-type" name="type" required class="contact-input">
+                                            <option value="">-- Scegli tipo --</option>
+                                            <option value="Short Film">Short Film</option>
+                                            <option value="Feature Film">Feature Film</option>
+                                            <option value="Tv Show">Tv Show</option>
+                                            <option value="Arthouse">Arthouse</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="film-production">Casa di Produzione</label>
+                                        <input type="text" id="film-production" name="production" class="contact-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="film-year">Anno *</label>
+                                        <input type="number" id="film-year" name="year" min="2020" max="2030" required class="contact-input">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="film-role">Il Tuo Ruolo *</label>
+                                        <select id="film-role" name="role" required class="contact-input">
+                                            <option value="">-- Seleziona ruolo --</option>
+                                            <option value="Sound Designer">Sound Designer</option>
+                                            <option value="Sound Editor">Sound Editor</option>
+                                            <option value="Dialogue Editor">Dialogue Editor</option>
+                                            <option value="Sound Mixer">Sound Mixer</option>
+                                            <option value="Re-recording Mixer">Re-recording Mixer</option>
+                                            <option value="Field Recordist">Field Recordist</option>
+                                            <option value="ADR editor">ADR editor</option>
+                                            <option value="Sound Effects Editor">Sound Effects Editor</option>
+                                            <option value="Composer">Composer</option>
+                                            <option value="Foley Artist">Foley Artist</option>
+                                            <option value="Altro">Altro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="film-trailer">Link Trailer</label>
+                                    <input type="url" id="film-trailer" name="trailer" placeholder="https://www.youtube.com/watch?v=..." class="contact-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="film-imdb">IMDB Link</label>
+                                    <input type="url" id="film-imdb" name="imdb" placeholder="https://www.imdb.com/title/tt1234567/" class="contact-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="film-poster">Poster del Film&TV *</label>
+                                    <input type="file" id="film-poster" name="poster" accept="image/*" required class="file-input">
+                                    <small>Formati: JPG, PNG. Dimensione max: 5MB</small>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="submit-btn">Carica Progetto FILM&TV</button>
+                                    <button type="button" onclick="resetForm('film-form')" class="reset-btn">Reset</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Form per DOCUMENTARY -->
+                    <div id="documentary-form" class="upload-form" style="display: none;">
+                        <div class="upload-section">
+                            <h4>📹 Nuovo Progetto DOCUMENTARY</h4>
+                            <form id="site-info-form" class="project-form" action="upload-handler.php" method="POST" enctype="multipart/form-data">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="doc-title">Titolo del Documentario *</label>
+                                        <input type="text" id="doc-title" name="title" required class="contact-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="doc-director">Regista *</label>
+                                        <input type="text" id="doc-director" name="director" required class="contact-input">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="doc-production">Casa di Produzione</label>
+                                        <input type="text" id="doc-production" name="production" class="contact-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="doc-year">Anno *</label>
+                                        <input type="number" id="doc-year" name="year" min="2020" max="2030" required class="contact-input">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="doc-role">Il Tuo Ruolo *</label>
+                                        <select id="doc-role" name="role" required class="contact-input">
+                                            <option value="">-- Seleziona ruolo --</option>
+                                            <option value="Sound Designer">Sound Designer</option>
+                                            <option value="Sound Editor">Sound Editor</option>
+                                            <option value="Dialogue Editor">Dialogue Editor</option>
+                                            <option value="Sound Mixer">Sound Mixer</option>
+                                            <option value="Re-recording Mixer">Re-recording Mixer</option>
+                                            <option value="Field Recordist">Field Recordist</option>
+                                            <option value="ADR editor">ADR editor</option>
+                                            <option value="Sound Effects Editor">Sound Effects Editor</option>
+                                            <option value="Composer">Composer</option>
+                                            <option value="Altro">Altro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="doc-trailer">Link Trailer</label>
+                                    <input type="url" id="doc-trailer" name="trailer" placeholder="https://www.youtube.com/watch?v=..." class="contact-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="doc-imdb">IMDB Link</label>
+                                    <input type="url" id="doc-imdb" name="imdb" placeholder="https://www.imdb.com/title/tt1234567/" class="contact-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="doc-poster">Poster del Documentario *</label>
+                                    <input type="file" id="doc-poster" name="poster" accept="image/*" required class="file-input">
+                                    <small>Formati: JPG, PNG. Dimensione max: 5MB</small>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="submit-btn">Carica Progetto DOCUMENTARY</button>
+                                    <button type="button" onclick="resetForm('documentary-form')" class="reset-btn">Reset</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Form per COMMERCIAL -->
+                    <div id="commercial-form" class="upload-form" style="display: none;">
+                        <div class="upload-section">
+                            <h4>📺 Nuovo Progetto COMMERCIAL</h4>
+                            <form id="site-info-form" class="project-form" action="upload-handler.php" method="POST" enctype="multipart/form-data">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="com-title">Titolo del Commercial *</label>
+                                        <input type="text" id="com-title" name="title" required class="contact-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="com-director">Regista *</label>
+                                        <input type="text" id="com-director" name="director" required class="contact-input">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="com-production">Agenzia/Casa di Produzione</label>
+                                        <input type="text" id="com-production" name="production" class="contact-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="com-year">Anno *</label>
+                                        <input type="number" id="com-year" name="year" min="2020" max="2030" required class="contact-input">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="com-role">Il Tuo Ruolo *</label>
+                                        <select id="com-role" name="role" required class="contact-input">
+                                            <option value="">-- Seleziona ruolo --</option>
+                                            <option value="Sound Designer">Sound Designer</option>
+                                            <option value="Sound Editor">Sound Editor</option>
+                                            <option value="Dialogue Editor">Dialogue Editor</option>
+                                            <option value="Sound Mixer">Sound Mixer</option>
+                                            <option value="Re-recording Mixer">Re-recording Mixer</option>
+                                            <option value="Field Recordist">Field Recordist</option>
+                                            <option value="ADR editor">ADR editor</option>
+                                            <option value="Sound Effects Editor">Sound Effects Editor</option>
+                                            <option value="Composer">Composer</option>
+                                            <option value="Altro">Altro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="com-trailer">Link Commercial</label>
+                                    <input type="url" id="com-trailer" name="trailer" placeholder="https://www.youtube.com/watch?v=..." class="contact-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="com-imdb">IMDB Link</label>
+                                    <input type="url" id="com-imdb" name="imdb" placeholder="https://www.imdb.com/title/tt1234567/" class="contact-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="com-poster">Poster del Commercial *</label>
+                                    <input type="file" id="com-poster" name="poster" accept="image/*" required class="file-input">
+                                    <small>Formati: JPG, PNG. Dimensione max: 5MB</small>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="submit-btn">Carica Progetto COMMERCIAL</button>
+                                    <button type="button" onclick="resetForm('commercial-form')" class="reset-btn">Reset</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Form per LIBRARIES -->
+                    <div id="libraries-form" class="upload-form" style="display: none;">
+                        <div class="upload-section">
+                            <h4>🌳 Nuovo Progetto LIBRARIES</h4>
+                            <form id="site-info-form" class="project-form" action="upload-handler.php" method="POST" enctype="multipart/form-data">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="lib-title">Titolo della Libreria *</label>
+                                        <input type="text" id="lib-title" name="title" required class="contact-input">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="lib-location">Location *</label>
+                                        <input type="text" id="lib-location" name="location" placeholder="es. Milano, Italia" required class="contact-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lib-year">Anno *</label>
+                                        <input type="number" id="lib-year" name="year" min="2020" max="2030" required class="contact-input">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="lib-poster-16x9">Cover della Libreria (16:9) *</label>
+                                    <input type="file" id="lib-poster-16x9" name="poster16_9" accept="image/*" required class="file-input">
+                                    <small>Carica un'immagine 16:9 per il poster orizzontale.</small>
+                                    <div id="lib-poster-16x9-preview" style="margin-top:1rem;"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lib-poster-1x1">Miniatura 1:1 *</label>
+                                    <input type="file" id="lib-poster-1x1" name="poster1_1" accept="image/*" required class="file-input">
+                                    <small>Carica o ritaglia un'immagine quadrata 1:1 per la miniatura.</small>
+                                    <div id="lib-poster-1x1-preview" style="margin-top:1rem;"></div>
+                                    <div id="lib-crop-preview" style="margin-top:1rem;"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="lib-audio">Audio Sample *</label>
+                                    <input type="file" id="lib-audio" name="audio" accept="audio/*" required class="file-input">
+                                    <small>Formati: MP3, WAV. Dimensione max: 10MB</small>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="submit-btn">Carica Progetto LIBRARIES</button>
+                                    <button type="button" onclick="resetForm('libraries-form')" class="reset-btn">Reset</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Cropping Tool Modal for LIBRARIES upload form -->
+                    <div id="lib-cropper-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); z-index:9999; align-items:center; justify-content:center;">
+                      <div style="background:#fff; padding:2rem; border-radius:12px; max-width:90vw; max-height:90vh;">
+                        <div id="lib-cropper-instruction" style="margin-bottom:1rem; font-weight:bold; color:#222; font-size:1.3rem;">Seleziona la miniatura 1:1</div>
+                        <img id="lib-cropper-image" style="max-width:400px; max-height:400px; display:block;">
+                        <div style="margin-top:1rem; display:flex; gap:1rem;">
+                          <button id="lib-cropper-crop-btn" class="submit-btn" type="button">Crop & Salva Miniatura</button>
+                          <button id="lib-cropper-cancel-btn" class="reset-btn" type="button">Annulla</button>
+                          <button id="lib-cropper-close-btn" class="reset-btn close-cropper-btn" type="button" onclick="document.getElementById('lib-cropper-modal').style.display='none'">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Pulsante Logout -->
+                    <div class="logout-section">
+                        <button onclick="logout()" class="logout-btn">Logout</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer (in ogni pagina) -->
+        </section>
+
+        <!-- ============================================
+             PAGINA WAVETABLE (nascosta di default)
+        ============================================ -->
+        <section id="wavetable-page" class="page" role="main">
+          <div class="wavetable-container">
+            <div class="wave-container" id="waveContainer">
+              <div class="mouse-cursor" id="mouseCursor"></div>
+              <div class="service-grid">
+                <div class="service-cell"><div class="service-label">DIALOGUE EDITING</div></div>
+                <div class="service-cell"><div class="service-label"></div></div>
+                <div class="service-cell"><div class="service-label">LOCATION SOUND</div></div>
+                <div class="service-cell"><div class="service-label"></div></div>
+                <div class="service-cell"><div class="service-label">SOUND DESIGN</div></div>
+                <div class="service-cell"><div class="service-label"></div></div>
+                <div class="service-cell"><div class="service-label">MUSIC EDITING</div></div>
+                <div class="service-cell"><div class="service-label"></div></div>
+                <div class="service-cell"><div class="service-label">SOUND RESTORATION</div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================
+             TEMPORARY PAGE (for the camera button)
+        ============================================ -->
+        <section id="temp-page" class="page" role="main">
+            <div class="temp-page-content">
+                <h1>IMAGE TEST PAGE</h1>
+                <p>Testing image variations and effects</p>
+                
+                <!-- Debug button -->
+                <button onclick="initAsciiArt()" style="background: var(--pink-main); color: #000; padding: 0.5rem 1rem; border: none; border-radius: 4px; margin-bottom: 2rem; cursor: pointer;">Generate ASCII Art</button>
+                
+                <!-- Image Test Grid -->
+                <div class="image-test-grid">
+                    <!-- Only show: 2.jpg (ASCII 3-Color) -->
+                    <div class="image-row">
+                        <div class="image-variation">
+                            <h3>2.jpg (ASCII 3-Color)</h3>
+                            <img src="temp_profile/2.jpg" alt="2 ASCII 3-Color" class="test-image ascii-3color">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Place the global footer container just before </body> -->
+        <div class="global-footer-container">
+          <footer class="site-footer">
+            <div class="copyright copyright-fixed">
+              © 2025 silviaorengowebdesign | <a href="#privacy">Privacy Policy</a>
+            </div>
+          </footer>
+        </div>
+    </div><!-- Fine web-area -->
+    
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+    <!-- Cropper.js -->
+    <script src="cropper.min.js"></script>
+    <!-- Cropper Modal for BIO Profile Pic (4:3) -->
+    <div id="bio-cropper-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); z-index:9999; align-items:center; justify-content:center;">
+      <div style="background:#fff; padding:2rem; border-radius:12px; max-width:90vw; max-height:90vh;">
+        <div id="bio-cropper-instruction" style="margin-bottom:1rem; font-weight:bold; color:#222; font-size:1.3rem;">Seleziona e ritaglia la foto profilo (4:3)</div>
+        <img id="bio-cropper-image" style="max-width:400px; max-height:300px; display:block;">
+        <div style="margin-top:1rem; display:flex; gap:1rem;">
+          <button id="bio-cropper-crop-btn" class="submit-btn" type="button">Crop & Salva</button>
+          <button id="bio-cropper-cancel-btn" class="reset-btn" type="button">Annulla</button>
+          <button id="bio-cropper-close-btn" class="reset-btn close-cropper-btn" type="button" onclick="document.getElementById('bio-cropper-modal').style.display='none'">Close</button>
+        </div>
+      </div>
+    </div>
+    <style>
+.imdb-btn.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  filter: grayscale(1);
+  cursor: default !important;
+}
+.close-cropper-btn {
+  background: var(--pink-main) !important;
+  color: #fff !important;
+  font-weight: bold;
+  box-shadow: 0 2px 8px #000 !important;
+  border: none !important;
+  border-radius: 6px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.close-cropper-btn:hover {
+  background: var(--blue-main) !important;
+  box-shadow: 0 4px 16px #000 !important;
+}
+</style>
+</body>
+</html>
